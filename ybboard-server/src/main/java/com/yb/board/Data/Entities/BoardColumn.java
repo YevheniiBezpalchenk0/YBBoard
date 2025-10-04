@@ -8,7 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Board_Columns")
+@Table(name = "Board_Column")
 @Data
 public class BoardColumn {
 
@@ -18,11 +18,12 @@ public class BoardColumn {
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
+    @Column(name = "position", nullable = false)
+    private int position;
 
     @ManyToOne
+    @JoinColumn(name = "board_id")
     private Board board;
-
-
 
     @CreationTimestamp
     @Column(name = "created_at")

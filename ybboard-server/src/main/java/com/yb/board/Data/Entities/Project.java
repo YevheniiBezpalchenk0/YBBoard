@@ -1,6 +1,8 @@
 package com.yb.board.Data.Entities;
 
+import com.yb.board.Data.DTO.ProjectDTO;
 import com.yb.board.Data.Enums.PROJECT_TYPE;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,8 +26,8 @@ public class Project {
     private Board board;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "project_type")
-    private PROJECT_TYPE projectType;
+    @Column(name = "project_type", nullable = false)
+    private PROJECT_TYPE projectType = PROJECT_TYPE.KANBAN;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -34,4 +36,15 @@ public class Project {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Project(Long id, String name, PROJECT_TYPE projectType) {
+        this.id = id;
+        this.name = name;
+        this.projectType = projectType;
+    }
+
+
+    public ProjectDTO toDTO(){
+        return new ProjectDTO(this.getId(), this.getName(), this.getProjectType());
+    }
 }
