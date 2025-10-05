@@ -22,8 +22,11 @@ public class Ticket {
     @Column(name = "description", length = 1000)
     private String description;
 
-    @Column(name = "status", nullable = false)
-    private String status = "Backlog";
+    @ManyToOne
+    @JoinColumn(name = "board_column_id")
+    private BoardColumn boardColumn;
+    @OneToOne(mappedBy = "Ticket")
+    private TicketStatus status;
 
     @Column(name = "Assignee")
     private String assignee;

@@ -37,14 +37,4 @@ public class Project {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Project(Long id, String name, PROJECT_TYPE projectType) {
-        this.id = id;
-        this.name = name;
-        this.projectType = projectType;
-    }
-
-
-    public ProjectDTO toDTO(){
-        return new ProjectDTO(this.getId(), this.getName(), this.getProjectType());
-    }
 }

@@ -10,7 +10,4 @@ public record ProjectDTO(
         String name,
         PROJECT_TYPE projectType
 ) {
-    public Project toEntity(){
-        return new Project(this.id(), this.name(), this.projectType());
-    }
 }
