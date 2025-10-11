@@ -22,6 +22,9 @@ public class TicketStatus {
     @Column(name = "description", length = 150)
     private String description;
 
+    @OneToOne()
+    private Ticket ticket;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;

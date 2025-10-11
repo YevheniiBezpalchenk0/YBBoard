@@ -26,7 +26,7 @@ public class BoardColumn {
     @JoinColumn(name = "board_id")
     private Board board;
 
-    @OneToMany(mappedBy = "Board_Column", orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "boardColumn", fetch = FetchType.LAZY)
     @OrderBy("position ASC")
     private List<Ticket> tickets;
 

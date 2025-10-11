@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Project")
@@ -23,7 +24,7 @@ public class Project {
     private String name;
 
     @OneToMany(cascade = CascadeType.REMOVE)
-    private Board board;
+    private List<Board> board;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "project_type", nullable = false)

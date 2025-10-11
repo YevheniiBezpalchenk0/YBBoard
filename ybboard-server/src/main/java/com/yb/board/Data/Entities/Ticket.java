@@ -25,7 +25,7 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "board_column_id")
     private BoardColumn boardColumn;
-    @OneToOne(mappedBy = "Ticket")
+    @OneToOne(mappedBy = "ticket")
     private TicketStatus status;
 
     @Column(name = "Assignee")
